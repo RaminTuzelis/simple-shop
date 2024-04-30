@@ -35,3 +35,9 @@ example-command:
 # Run PHPUnit tests
 test:
 	$(DOCKER_COMPOSE) exec $(PHP_SERVICE_NAME) vendor/bin/phpunit
+
+# Install project dependencies with Composer, copy .env.example to .env, and generate application key
+setup:
+	$(DOCKER_COMPOSE) exec $(PHP_SERVICE_NAME) composer install && \
+	$(DOCKER_COMPOSE) exec $(PHP_SERVICE_NAME) cp .env.example .env && \
+	$(DOCKER_COMPOSE) exec $(PHP_SERVICE_NAME) php artisan key:generate
