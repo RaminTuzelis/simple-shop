@@ -60,9 +60,6 @@ RUN apt-get install -y libpq-dev \
     && docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql \
     && docker-php-ext-install pdo pdo_pgsql pgsql
 
-<<<<<<< HEAD
 RUN chown -R www-data:www-data /var/www/storage \
     && chown -R www-data:www-data /var/www/bootstrap/cache
-=======
 
->>>>>>> fdcf0de5fd09cf71e1271641d41eb6233d50d224
