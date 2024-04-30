@@ -49,10 +49,20 @@ RUN apt-get -y install --fix-missing \
 #     zip \
 #     intl
 
+# Node.js, NPM, Yarn
+RUN curl -sL https://deb.nodesource.com/setup_18.x | bash -
+RUN apt-get install -y nodejs
+RUN npm install npm@latest -g
+RUN npm install yarn -g
+
 # Install Postgre PDO
 RUN apt-get install -y libpq-dev \
     && docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql \
     && docker-php-ext-install pdo pdo_pgsql pgsql
 
+<<<<<<< HEAD
 RUN chown -R www-data:www-data /var/www/storage \
     && chown -R www-data:www-data /var/www/bootstrap/cache
+=======
+
+>>>>>>> fdcf0de5fd09cf71e1271641d41eb6233d50d224
