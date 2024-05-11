@@ -45,4 +45,11 @@ db_ip:
 setup:
 	$(DOCKER_COMPOSE) exec $(PHP_SERVICE_NAME) composer install && \
 	$(DOCKER_COMPOSE) exec $(PHP_SERVICE_NAME) cp .env.example .env && \
-	$(DOCKER_COMPOSE) exec $(PHP_SERVICE_NAME) php artisan key:generate
+	$(DOCKER_COMPOSE) exec $(PHP_SERVICE_NAME) php artisan key:generate && \
+	$(DOCKER_COMPOSE) exec $(PHP_SERVICE_NAME) sh -c "npm install && npm install laravel-vite-plugin" && \
+	$(DOCKER_COMPOSE) exec $(PHP_SERVICE_NAME) npm run dev && npm run build
+
+run:
+	$(DOCKER_COMPOSE) exec $(PHP_SERVICE_NAME) npm run dev
+build:
+	$(DOCKER_COMPOSE) exec $(PHP_SERVICE_NAME) npm run build

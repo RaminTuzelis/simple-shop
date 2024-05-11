@@ -17,3 +17,7 @@ make db_ip
 ```bash
 make migrate
 ```
+
+### 4. Open in browser
+
+http://localhost:8080/
