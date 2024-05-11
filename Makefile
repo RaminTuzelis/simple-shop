@@ -16,7 +16,7 @@ CONTAINER_ID=$(docker ps -aqf "name=blog")
 
 # SSH into the PHP container
 ssh:
-	$(DOCKER_COMPOSE) exec $(PHP_SERVICE_NAME) sh
+	$(DOCKER_COMPOSE) exec -it $(PHP_SERVICE_NAME) bash
 
 # Install project dependencies
 install:
